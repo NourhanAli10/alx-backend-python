@@ -1,19 +1,16 @@
 #!/usr/bin/env python3
 """102-type_checking.py"""
-from typing import Tuple, List
+from typing import List, Tuple
 
 
-def zoom_array(lst: List[int], factor: int = 2) -> List[int]:
-    """function validate the following piece of code and apply
-    any necessary changes"""
-    zoomed_in: List[int] = [
+def zoom_array(lst: Tuple[int, ...], factor: int = 2) -> Tuple[int, ...]:
+    zoomed_in: Tuple[int, ...] = tuple(
         item for item in lst
-        for _ in range(factor)
-    ]
+        for i in range(factor)
+    )
     return zoomed_in
 
-
-array = [12, 72, 91]
+array = (12, 72, 91)
 
 zoom_2x = zoom_array(array)
 
