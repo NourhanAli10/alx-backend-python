@@ -4,6 +4,8 @@ from typing import Tuple, List
 
 
 def zoom_array(lst: List[int], factor: int = 2) -> List[int]:
+    """function validate the following piece of code and apply
+    any necessary changes"""
     zoomed_in: List[int] = [
         item for item in lst
         for _ in range(factor)
