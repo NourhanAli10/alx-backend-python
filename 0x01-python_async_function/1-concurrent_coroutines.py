@@ -14,4 +14,4 @@ async def wait_n(n: int, max_delay: int) -> List[float]:
         instance = wait_random(max_delay)
         result = await instance
         all_delays.append(result)
-    return all_delays.sort()
+    return sorted(all_delays)
