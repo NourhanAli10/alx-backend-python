@@ -1,5 +1,4 @@
 #!/usr/bin/env python3
-#!/usr/bin/env python3
 """
 4-tasks.py
 """
@@ -16,5 +15,15 @@ async def task_wait_n(n: int, max_delay: int) -> List[float]:
     n and max_delay. You will spawn task_wait_random n times
     with the specified max_delay.
     """
-    delays = [task_wait_random(max_delay) for _ in range(n)]
-    return await asyncio.gather(*delays)
+    tasks = []
+    delays = []
+
+    for i in range(n):
+        task = task_wait_random(max_delay)
+        tasks.append(task)
+
+    for task in asyncio.as_completed((tasks)):
+        delay = await task
+        delays.append(delay)
+
+    return delays
